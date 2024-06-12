@@ -1,0 +1,7 @@
+-- 코드를 입력하세요
+SELECT USER_ID, PRODUCT_ID
+FROM ONLINE_SALE
+-- 동일한 회원이 동일한 상품 구매한 경우 찾기 위해 그룹화
+GROUP BY USER_ID, PRODUCT_ID 
+HAVING COUNT(*)>1
+ORDER BY USER_ID, PRODUCT_ID DESC;
