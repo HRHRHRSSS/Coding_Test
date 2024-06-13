@@ -1,0 +1,9 @@
+# 서브쿼리 두 개를 이용함
+SELECT COUNT(*) AS FISH_COUNT
+FROM FISH_INFO
+WHERE FISH_TYPE = (SELECT FISH_TYPE
+                  FROM FISH_NAME_INFO
+                  WHERE FISH_NAME = 'BASS')
+OR FISH_TYPE = (SELECT FISH_TYPE
+                FROM FISH_NAME_INFO
+                WHERE FISH_NAME = 'SNAPPER')
