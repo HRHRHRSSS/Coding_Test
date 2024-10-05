@@ -1,9 +1,8 @@
-# 서브쿼리 두 개를 이용함
+-- 2트
+-- FISH_INFO 테이블에서 잡은 BASS와 SNAPPER 수 출력
+-- 컬럼명은 FISH_COUNT
 SELECT COUNT(*) AS FISH_COUNT
 FROM FISH_INFO
-WHERE FISH_TYPE = (SELECT FISH_TYPE
-                  FROM FISH_NAME_INFO
-                  WHERE FISH_NAME = 'BASS')
-OR FISH_TYPE = (SELECT FISH_TYPE
-                FROM FISH_NAME_INFO
-                WHERE FISH_NAME = 'SNAPPER')
+WHERE FISH_TYPE IN (SELECT FISH_TYPE
+                   FROM FISH_NAME_INFO
+                   WHERE FISH_NAME IN ('BASS','SNAPPER'))
