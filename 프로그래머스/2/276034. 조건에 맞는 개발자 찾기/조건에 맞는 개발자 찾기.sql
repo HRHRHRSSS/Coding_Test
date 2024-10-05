@@ -1,9 +1,8 @@
-SELECT ID, EMAIL,FIRST_NAME,LAST_NAME
+-- DEVELOPERS 테이블에서 Python이나 C# 스킬 가진 개발자 정보 조회
+-- 조건에 맞는 개발자ID, 이메일, 이름, 성 조회
+-- 결과 ID 기준 오름차순
+SELECT ID, EMAIL, FIRST_NAME, LAST_NAME
 FROM DEVELOPERS
-WHERE SKILL_CODE & (SELECT CODE 
-                    FROM SKILLCODES 
-                    WHERE NAME = 'Python')
-OR SKILL_CODE & (SELECT CODE 
-                 FROM SKILLCODES 
-                 WHERE NAME = 'C#')
-ORDER BY ID         
+WHERE SKILL_CODE & (SELECT CODE FROM SKILLCODES WHERE NAME ='Python')
+OR SKILL_CODE & (SELECT CODE FROM SKILLCODES WHERE NAME ='C#')
+ORDER BY ID ASC
