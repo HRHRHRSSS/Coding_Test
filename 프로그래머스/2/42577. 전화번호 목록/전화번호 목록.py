@@ -5,3 +5,9 @@ def solution(phone_book):
         if phone_book[i] == phone_book[i+1][:n]:
             return False
     return True
+
+### zip함수 쓰기
+# for p1, p2 in zip(phone_book, phone_book[1:])
+#       if p2.startswith(p1):
+#           return False
+# return True
