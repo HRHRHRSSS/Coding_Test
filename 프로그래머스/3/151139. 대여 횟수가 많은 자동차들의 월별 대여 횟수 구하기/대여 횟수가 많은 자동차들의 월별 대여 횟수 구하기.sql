@@ -1,4 +1,6 @@
--- 코드를 입력하세요
+-- 날짜에 대한 조건 부분을
+-- 서브쿼리와 메인쿼리 둘 다에 넣어줘야했다
+-- 명확히 이해는 안되지만 다른 맥락이라서 각각 필요하다는..
 SELECT MONTH(START_DATE) AS MONTH, CAR_ID, COUNT(*) AS RECORDS
 FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY
 WHERE START_DATE BETWEEN '2022-08-01' AND '2022-10-31'
