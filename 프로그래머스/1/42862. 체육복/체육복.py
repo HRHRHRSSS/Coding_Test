@@ -1,3 +1,4 @@
+# 완료
 def solution(n, lost, reserve):
     new_lost = set(lost) - set(reserve)
     new_reserve = set(reserve) - set(lost)
