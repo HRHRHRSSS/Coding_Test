@@ -1,22 +1,17 @@
-from collections import deque
-
+# 투포인터 인덱스 사용하기
 def solution(people, limit):
-    # people 배열 정렬
-    people = sorted(people)
-    people = deque(people)
+    people.sort() 
+    left = 0 
+    right = len(people) - 1  # 가장 무거운 사람을 가리킴
     cnt = 0
-    # 젤 적 + 젤 많 < limit이면 둘 제거
-    while people:
-        if len(people)==1:
-            cnt+= 1
-            break
-            
-        if people[0]+people[-1] <= limit:
-            people.popleft() #가장 가벼운
-            people.pop() #가장 무거운
-            cnt += 1 #구명보트 카운트
-        else:
-            people.pop()
-            cnt += 1
-
+    
+    while left <= right:
+        # 가장 가벼운 사람과 가장 무거운 사람의 합이 limit 이하인 경우
+        if people[left] + people[right] <= limit:
+            left += 1  # 가벼운 사람 태우기
+        
+        # 무거운 사람은 항상 보트에 태움 (조건과 상관없이)
+        right -= 1
+        cnt += 1  # 보트 한 대 추가
+    
     return cnt
